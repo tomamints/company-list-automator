@@ -1,72 +1,47 @@
-# Welcome to your GPT Engineer project
+# 企業リスト自動化プロジェクト
 
-## Project info
+このプロジェクトは、指定されたウェブサイトから新規企業の情報を自動的にスクレイピングし、Google Sheetsに保存するためのものです。
 
-**Project**: company-list-automator
+## 実行手順
 
-**URL**: https://run.gptengineer.app/projects/0dd035ea-e5c8-40c3-8e8b-cdcd2c50fed0/improve
+1. 環境設定
+   - Python 3.7以上がインストールされていることを確認してください。
+   - 必要なPythonライブラリをインストールします：
+     ```
+     pip install requests beautifulsoup4 google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+     ```
 
-## How can I edit this code?
+2. Google Cloud Projectの設定
+   - [Google Cloud Console](https://console.cloud.google.com/)にアクセスし、新しいプロジェクトを作成します。
+   - Google Sheets APIを有効にします。
+   - 認証情報を作成し、JSONキーファイルをダウンロードします。
+   - ダウンロードしたJSONファイルを`token.json`という名前でプロジェクトのルートディレクトリに配置します。
 
-There are several ways of editing your application.
+3. スクリプトの設定
+   - `src/scripts/scrape_companies.py`ファイルを開きます。
+   - `url`変数を、スクレイピングしたいウェブページのURLに更新します。
 
-**Use GPT Engineer**
+4. スクリプトの実行
+   - コマンドラインで以下のコマンドを実行します：
+     ```
+     python src/scripts/scrape_companies.py
+     ```
 
-Simply visit the GPT Engineer project at [GPT Engineer](https://gptengineer.app/projects/0dd035ea-e5c8-40c3-8e8b-cdcd2c50fed0/improve) and start prompting.
+5. 結果の確認
+   - スクリプトが正常に実行されると、新しいGoogle Sheetsのスプレッドシートが作成されます。
+   - コンソールに表示されるURLをクリックして、作成されたスプレッドシートを確認します。
 
-Changes made via gptengineer.app will be committed automatically to this repo.
+## 注意事項
 
-**Use your preferred IDE**
+- ウェブサイトの利用規約を確認し、スクレイピングが許可されていることを確認してください。
+- 大量のリクエストを短時間で送信しないよう、適切な間隔を設けてスクリプトを実行してください。
+- エラーが発生した場合は、エラーメッセージを確認し、必要に応じてスクリプトを調整してください。
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in the GPT Engineer UI.
+## 定期実行の設定（オプション）
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+スクリプトを定期的に実行したい場合は、以下のいずれかの方法を検討してください：
 
-Follow these steps:
+1. cron（Unix系システム）やTask Scheduler（Windows）を使用して、定期的にスクリプトを実行するようスケジュールを設定する。
+2. クラウドサービス（例：Google Cloud Functions + Cloud Scheduler）を利用して、定期的にスクリプトを実行する。
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-All GPT Engineer projects can be deployed directly via the GPT Engineer app.
-
-Simply visit your project at [GPT Engineer](https://gptengineer.app/projects/0dd035ea-e5c8-40c3-8e8b-cdcd2c50fed0/improve) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.gptengineer.app/tips-tricks/custom-domain/)
+これらの設定方法については、それぞれのシステムやサービスのドキュメントを参照してください。
