@@ -31,6 +31,17 @@
    - スクリプトが正常に実行されると、新しいGoogle Sheetsのスプレッドシートが作成されます。
    - コンソールに表示されるURLをクリックして、作成されたスプレッドシートを確認します。
 
+## トラブルシューティング
+
+- `ModuleNotFoundError: No module named 'requests'`のようなエラーが発生した場合：
+  - 必要なライブラリが正しくインストールされていない可能性があります。
+  - 以下のコマンドを実行して、必要なライブラリを個別にインストールしてください：
+    ```
+    pip install requests
+    pip install beautifulsoup4
+    pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+    ```
+
 ## 注意事項
 
 - ウェブサイトの利用規約を確認し、スクレイピングが許可されていることを確認してください。
