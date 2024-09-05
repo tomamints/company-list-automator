@@ -8,15 +8,15 @@
    - Python 3.7以上がインストールされていることを確認してください。
    - 使用しているPythonのバージョンを確認します：
      ```
-     python --version
+     python3 --version
      ```
    - 必要なPythonライブラリをインストールします：
      ```
-     python -m pip install requests beautifulsoup4 google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+     python3 -m pip install requests beautifulsoup4 google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
      ```
    - インストールされたライブラリを確認します：
      ```
-     python -m pip list
+     python3 -m pip list
      ```
 
 2. Google Cloud Projectの設定
@@ -32,7 +32,7 @@
 4. スクリプトの実行
    - コマンドラインで以下のコマンドを実行します：
      ```
-     python src/scripts/scrape_companies.py
+     python3 src/scripts/scrape_companies.py
      ```
 
 5. 結果の確認
@@ -45,17 +45,17 @@
   - 使用しているPython環境が正しいか確認してください。
   - 以下のコマンドを実行して、Pythonの実行パスを確認します：
     ```
-    which python
+    which python3
     ```
   - 必要なライブラリが正しくインストールされているか確認します：
     ```
-    python -m pip list
+    python3 -m pip list
     ```
   - 上記の確認後も問題が解決しない場合は、以下のコマンドを実行して、必要なライブラリを個別にインストールしてください：
     ```
-    python -m pip install requests
-    python -m pip install beautifulsoup4
-    python -m pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+    python3 -m pip install requests
+    python3 -m pip install beautifulsoup4
+    python3 -m pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
     ```
 
 ## 注意事項
