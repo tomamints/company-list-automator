@@ -10,18 +10,19 @@ def scrape_companies(url):
     soup = BeautifulSoup(response.content, 'html.parser')
     companies = []
     
-    # ここでHTMLの構造に基づいて企業データを抽出
-    # 例: company_elements = soup.find_all('div', class_='company-item')
-    # for element in company_elements:
-    #     name = element.find('h2').text
-    #     # その他の必要な情報を抽出
-    #     companies.append({'name': name, ...})
+    # Extract company data based on the HTML structure
+    company_elements = soup.find_all('div', class_='company-item')
+    for element in company_elements:
+        name = element.find('h2', class_='company-name').text.strip()
+        address = element.find('p', class_='company-address').text.strip()
+        industry = element.find('span', class_='company-industry').text.strip()
+        companies.append({'name': name, 'address': address, 'industry': industry})
     
     return companies
 
 def save_to_csv(companies, filename):
     with open(filename, 'w', newline='', encoding='utf-8') as file:
-        writer = csv.DictWriter(file, fieldnames=companies[0].keys())
+        writer = csv.DictWriter(file, fieldnames=['name', 'address', 'industry'])
         writer.writeheader()
         writer.writerows(companies)
 
