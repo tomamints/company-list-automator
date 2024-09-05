@@ -6,9 +6,17 @@
 
 1. 環境設定
    - Python 3.7以上がインストールされていることを確認してください。
+   - 使用しているPythonのバージョンを確認します：
+     ```
+     python --version
+     ```
    - 必要なPythonライブラリをインストールします：
      ```
-     pip install requests beautifulsoup4 google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+     python -m pip install requests beautifulsoup4 google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+     ```
+   - インストールされたライブラリを確認します：
+     ```
+     python -m pip list
      ```
 
 2. Google Cloud Projectの設定
@@ -34,12 +42,20 @@
 ## トラブルシューティング
 
 - `ModuleNotFoundError: No module named 'requests'`のようなエラーが発生した場合：
-  - 必要なライブラリが正しくインストールされていない可能性があります。
-  - 以下のコマンドを実行して、必要なライブラリを個別にインストールしてください：
+  - 使用しているPython環境が正しいか確認してください。
+  - 以下のコマンドを実行して、Pythonの実行パスを確認します：
     ```
-    pip install requests
-    pip install beautifulsoup4
-    pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+    which python
+    ```
+  - 必要なライブラリが正しくインストールされているか確認します：
+    ```
+    python -m pip list
+    ```
+  - 上記の確認後も問題が解決しない場合は、以下のコマンドを実行して、必要なライブラリを個別にインストールしてください：
+    ```
+    python -m pip install requests
+    python -m pip install beautifulsoup4
+    python -m pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
     ```
 
 ## 注意事項
